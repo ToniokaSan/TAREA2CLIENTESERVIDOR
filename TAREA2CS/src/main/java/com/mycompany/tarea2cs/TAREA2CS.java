@@ -11,7 +11,7 @@ import java.util.*;
 public class TAREA2CS {
 
     public static void main(String[] args) {
-        System.out.println("Hello World!");
+        
         Scanner sc = new Scanner(System.in);
         
         Inventario miInventario = new Inventario();
@@ -22,9 +22,9 @@ public class TAREA2CS {
         miInventario.agregarProductos(prodes1);
         
         
-        int opcion;
+        int opcion = 0 ;
         do{
-            System.out.println("Bienvenido al Mini Super Pali");
+            System.out.println("Bienvenido al Mini Super Rápido");
             System.out.println(
                       "1- Agregar producto\n"
                     + "2- Mostrar inventario productos\n"
@@ -32,9 +32,10 @@ public class TAREA2CS {
                     + "4- Agregar al carrito de comprar\n"
                     + "5- Ver carrito de compras\n"
                     + "6- Pagar productos en carrito de compras\n"
-                    + "7- Salir del Mini Super");
-            opcion = sc.nextInt();
-            
+                    + "7- Salir del Mini Super\n"
+                    + "-------------");
+                    
+            opcion = ManejoExcepciones.pedirIntMenu(sc);
             switch (opcion){
                 case 1:
                     int opcionAgregar;
@@ -42,16 +43,18 @@ public class TAREA2CS {
                         System.out.println("Que tipo de producto desea agregar?");
                         System.out.println(
                                 "1- Producto regular (Sin descuento)\n"
-                                + "2- Producto con descuento");
+                                + "2- Producto con descuento\n"
+                                +"3- Volver al menu principal\n"
+                                + "-------------");
                         opcionAgregar = sc.nextInt();
                         switch (opcionAgregar){
                             case 1:
-                                
                                 break;
                             case 2:
                                 break;
                             case 3:
-                                System.out.println("Regresando al menu principal");
+                                System.out.println("Regresando al menu principal\n"
+                                    + "-------------");
                                 break;
                         }
                         
@@ -61,6 +64,10 @@ public class TAREA2CS {
                     miInventario.mostrarProductos();
                     break;//break case 2 menu principal
                 case 3:
+                    System.out.println("Ingrese el codigo del producto a buscar: ");
+                    int CodigoBuscado = sc.nextInt();
+                    System.out.println("");
+                    miInventario.buscarCodigo(CodigoBuscado);
                     break;//break case 3 menu principal
                 case 4:
                     break;//break case 4 menu principal
@@ -71,8 +78,10 @@ public class TAREA2CS {
                 case 7:
                     System.out.println("Saliendo del Mini Super, hasta luego...");
                     break;//break case 7 menu principal
+                
+                    
             }
         }while (opcion!= 7);//final del do 
-        
+        sc.close();
     }
 }

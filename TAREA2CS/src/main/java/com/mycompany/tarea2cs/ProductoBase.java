@@ -4,68 +4,12 @@
  */
 package com.mycompany.tarea2cs;
 
-import java.util.List;
 
 /**
  *
  * @author potoy
  */
-public class ProductoBase {
-    private int codigo;
-    private String nombre;
-    private double precio;
-    private double stock;
-
-    public ProductoBase() {
-    }
-
-    
-    public ProductoBase(int codigo, String nombre, double precio, double stock) {
-        this.codigo = codigo;
-        this.nombre = nombre;
-        this.precio = precio;
-        this.stock = stock;
-    }
-
-    public int getCodigo() {
-        return codigo;
-    }
-
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
-    public String getNombre() {
-        return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
-    }
-
-    public double getPrecio() {
-        return precio;
-    }
-
-    public void setPrecio(double precio) {
-        this.precio = precio;
-    }
-
-    public double getStock() {
-        return stock;
-    }
-
-    public void setStock(double stock) {
-        this.stock = stock;
-    }
-
-    @Override
-    public String toString() {
-        return "Producto " + "codigo: " + codigo + ", nombre: " + nombre + ", precio: " + precio + ", stock: " + stock + '}';
-    }
-    
-    public double calcularTotalCompra(int cantidadComprada){
-        return precio * cantidadComprada;
-    }
-
+public abstract class ProductoBase {
+   
+    public abstract double calcularTotalCompra(int cantidadComprada);
 }

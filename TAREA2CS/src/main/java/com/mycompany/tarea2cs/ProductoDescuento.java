@@ -8,7 +8,7 @@ package com.mycompany.tarea2cs;
  *
  * @author potoy
  */
-public class ProductoDescuento extends ProductoBase{
+public class ProductoDescuento extends Producto {
     private double porcentajeDescuento;
 
     public ProductoDescuento() {

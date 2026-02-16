@@ -14,8 +14,8 @@ import java.util.Map;
  * @author potoy
  */
 public class Inventario {
-    private List<ProductoBase> productos;
-    private Map<Integer, ProductoBase> mapaProductos;
+    private List<Producto> productos;
+    private Map<Integer, Producto> mapaProductos;
 
     
     public Inventario() {
@@ -23,36 +23,44 @@ public class Inventario {
         mapaProductos = new HashMap<>();
     }
 
-    public Inventario(List<ProductoBase> productos, Map mapaProductos) {
+    public Inventario(List<Producto> productos, Map<Integer, Producto> mapaProductos) {
         this.productos = productos;
         this.mapaProductos = mapaProductos;
     }
     
-    public List<ProductoBase> getProductos() {
+    public List<Producto> getProductos() {
         return productos;
     }
 
-    public void setProductos(List<ProductoBase> productos) {
+    public void setProductos(List<Producto> productos) {
         this.productos = productos;
     }
 
-    public Map<Integer, ProductoBase> getMapaProductos() {
+    public Map<Integer, Producto> getMapaProductos() {
         return mapaProductos;
     }
 
-    public void setMapaProductos(Map<Integer, ProductoBase> mapaProductos) {
+    public void setMapaProductos(Map<Integer, Producto> mapaProductos) {
         this.mapaProductos = mapaProductos;
     }
     
-    public void agregarProductos(ProductoBase producto){
+    public void agregarProductos(Producto producto){
         productos.add(producto);
         mapaProductos.put(producto.getCodigo(), producto);
 
     }
+    public void buscarCodigo(int CodigoBuscado){
+        Producto busqueda = mapaProductos.get((CodigoBuscado));
+        if (busqueda!=null){
+            System.out.println(busqueda+"\n");
+        }else{
+            System.out.println("El codigo ingresado no coincide con ningun producto\n");
+        }
+    }
     
     public void mostrarProductos(){
         for (int i= 0; i < productos.size(); i++){
-            System.out.println( (i+1) +"- " + productos.get(i).toString());
+            System.out.println( (i+1) +"- " + productos.get(i).toString()+"\n");
         }
     }
 
