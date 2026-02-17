@@ -13,10 +13,10 @@ import java.util.Scanner;
  */
 public class ManejoExcepciones {
     
-    public static int pedirIntMenu(Scanner sc){
+    public static int pedirInt(Scanner sc){
 
-        int opcion=0;
-        boolean continuar =true;
+        int opcion = 0;
+        boolean continuar = true;
 
         while (continuar){
             try {

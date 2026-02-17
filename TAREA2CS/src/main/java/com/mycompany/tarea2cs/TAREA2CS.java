@@ -36,7 +36,7 @@ public class TAREA2CS {
                     + "7- Salir del Mini Super\n"
                     + "-------------");
                     
-            opcion = ManejoExcepciones.pedirIntMenu(sc);
+            opcion = ManejoExcepciones.pedirInt(sc);
             switch (opcion){
                 case 1:
                     int opcionAgregar;
@@ -47,7 +47,7 @@ public class TAREA2CS {
                                 + "2- Producto con descuento\n"
                                 +"3- Volver al menu principal\n"
                                 + "-------------");
-                        opcionAgregar = sc.nextInt();
+                        opcionAgregar = ManejoExcepciones.pedirInt(sc);
                         switch (opcionAgregar){
                             case 1:
                                 miInventario.agregarProducto();
@@ -68,16 +68,16 @@ public class TAREA2CS {
                     break;//break case 2 menu principal
                 case 3:
                     System.out.println("Ingrese el codigo del producto a buscar: ");
-                    int CodigoBuscado = sc.nextInt();
+                    int CodigoBuscado = ManejoExcepciones.pedirInt(sc);;
                     System.out.println("");
                     miInventario.buscarCodigo(CodigoBuscado);
                     break;//break case 3 menu principal
                 case 4:
                     miInventario.mostrarProductos();
                     System.out.println("Ingrese el numero de producto a agregar al carrito: ");
-                    int agregar = sc.nextInt();
-                    miCarrito.AgregarAlCarrito(miInventario.getProductos().get(agregar - 1));
-                    miInventario.getProductos().get(agregar-1).setStock(miInventario.getProductos().get(agregar-1).getStock()-1);
+                    int agregar = ManejoExcepciones.pedirInt(sc)-1;
+                    miCarrito.AgregarAlCarrito(miInventario.getProductos().get(agregar));
+                    miInventario.getProductos().get(agregar-1).setStock(miInventario.getProductos().get(agregar).getStock()-1);
                     break;//break case 4 menu principal
                 case 5:
                     miCarrito.mostrarCarrito();
