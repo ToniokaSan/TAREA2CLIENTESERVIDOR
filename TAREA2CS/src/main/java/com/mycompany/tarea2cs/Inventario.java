@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.*;
 
 /**
  *
@@ -47,7 +48,6 @@ public class Inventario {
     public void agregarProductos(Producto producto){
         productos.add(producto);
         mapaProductos.put(producto.getCodigo(), producto);
-
     }
     public void buscarCodigo(int CodigoBuscado){
         Producto busqueda = mapaProductos.get((CodigoBuscado));
@@ -63,8 +63,40 @@ public class Inventario {
             System.out.println( (i+1) +"- " + productos.get(i).toString()+"\n");
         }
     }
-
-
     
+    public void agregarProducto(){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el codigo: ");
+        int codigo = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Ingrese el nombre: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese su precio: ");
+        double precio = sc.nextDouble();
+        System.out.println("Digite su stock");
+        int stock = sc.nextInt();
+        Producto producto = new Producto( codigo, nombre, precio, stock);
+        productos.add(producto);
+        mapaProductos.put(producto.getCodigo(), producto);
+    }
+
+    public void agregarProductoDescuento (){
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Ingrese el descuento del producto: ");
+        double descuento = sc.nextDouble();
+        System.out.println("Ingrese el codigo: ");
+        int codigo = sc.nextInt();
+        sc.nextLine();
+        System.out.println("Ingrese el nombre: ");
+        String nombre = sc.nextLine();
+        System.out.println("Ingrese su precio: ");
+        double precio = sc.nextDouble();
+        System.out.println("Digite su stock");
+        int stock = sc.nextInt();
+        ProductoDescuento producto = new ProductoDescuento(descuento,codigo, nombre, precio, stock);
+        productos.add(producto);
+        mapaProductos.put(producto.getCodigo(), producto);
+        
+    }
     
 }

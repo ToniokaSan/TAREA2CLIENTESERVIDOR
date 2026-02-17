@@ -50,8 +50,10 @@ public class TAREA2CS {
                         opcionAgregar = sc.nextInt();
                         switch (opcionAgregar){
                             case 1:
+                                miInventario.agregarProducto();
                                 break;
                             case 2:
+                                miInventario.agregarProductoDescuento();
                                 break;
                             case 3:
                                 System.out.println("Regresando al menu principal\n"

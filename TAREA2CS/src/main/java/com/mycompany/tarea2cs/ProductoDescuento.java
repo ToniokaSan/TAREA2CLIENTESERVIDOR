@@ -29,7 +29,7 @@ public class ProductoDescuento extends Producto {
 
     @Override
     public double calcularTotalCompra() {
-        double total = getPrecio() * (13/100);
+        double total = getPrecio() + (getPrecio()* 0.13);
         double descuento = total * (porcentajeDescuento / 100);
         return total - descuento;
     }
