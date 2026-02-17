@@ -14,7 +14,7 @@ public class ProductoDescuento extends Producto {
     public ProductoDescuento() {
     }
 
-    public ProductoDescuento(double porcentajeDescuento, int codigo, String nombre, double precio, double stock) {
+    public ProductoDescuento(double porcentajeDescuento, int codigo, String nombre, double precio, int stock) {
         super(codigo, nombre, precio, stock);
         this.porcentajeDescuento = porcentajeDescuento;
     }
@@ -28,8 +28,8 @@ public class ProductoDescuento extends Producto {
     }
 
     @Override
-    public double calcularTotalCompra(int cantidadComprada) {
-        double total = getPrecio() * cantidadComprada;
+    public double calcularTotalCompra() {
+        double total = getPrecio() * (13/100);
         double descuento = total * (porcentajeDescuento / 100);
         return total - descuento;
     }

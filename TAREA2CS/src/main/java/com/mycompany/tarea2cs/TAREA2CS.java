@@ -15,6 +15,7 @@ public class TAREA2CS {
         Scanner sc = new Scanner(System.in);
         
         Inventario miInventario = new Inventario();
+        Carrito miCarrito = new Carrito();
         
         Producto prod1 = new Producto (001,"Huevos", 1500,30);
         ProductoDescuento prodes1 = new ProductoDescuento(20,002,"Leche",1800,20);
@@ -70,10 +71,18 @@ public class TAREA2CS {
                     miInventario.buscarCodigo(CodigoBuscado);
                     break;//break case 3 menu principal
                 case 4:
+                    miInventario.mostrarProductos();
+                    System.out.println("Ingrese el numero de producto a agregar al carrito: ");
+                    int agregar = sc.nextInt();
+                    miCarrito.AgregarAlCarrito(miInventario.getProductos().get(agregar - 1));
+                    miInventario.getProductos().get(agregar-1).setStock(miInventario.getProductos().get(agregar-1).getStock()-1);
                     break;//break case 4 menu principal
                 case 5:
+                    miCarrito.mostrarCarrito();
                     break;//break case 5 menu principal
                 case 6:
+                    
+                    System.out.println(miCarrito.calcularTotalCompra());
                    break; //break case 6 menu principal
                 case 7:
                     System.out.println("Saliendo del Mini Super, hasta luego...");

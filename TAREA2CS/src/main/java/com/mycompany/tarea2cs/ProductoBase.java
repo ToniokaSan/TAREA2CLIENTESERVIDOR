@@ -11,5 +11,5 @@ package com.mycompany.tarea2cs;
  */
 public abstract class ProductoBase {
    
-    public abstract double calcularTotalCompra(int cantidadComprada);
+    public abstract double calcularTotalCompra();
 }

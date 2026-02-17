@@ -12,13 +12,13 @@ public class Producto extends ProductoBase {
     private int codigo;
     private String nombre;
     private double precio;
-    private double stock;
+    private int stock;
 
     public Producto() {
     }
 
     
-    public Producto(int codigo, String nombre, double precio, double stock) {
+    public Producto(int codigo, String nombre, double precio, int stock) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.precio = precio;
@@ -49,11 +49,11 @@ public class Producto extends ProductoBase {
         this.precio = precio;
     }
 
-    public double getStock() {
+    public int getStock() {
         return stock;
     }
 
-    public void setStock(double stock) {
+    public void setStock(int stock) {
         this.stock = stock;
     }
 
@@ -62,9 +62,10 @@ public class Producto extends ProductoBase {
         return "Producto " + "codigo: " + codigo + ", nombre: " + nombre + ", precio: " + precio + ", stock: " + stock + '}';
     }
     
-    public double calcularTotalCompra(int cantidadComprada){
-        return precio * cantidadComprada;
+    public double calcularTotalCompra(){
+        return precio + (precio * 0.13);
     }
+    
     
 
 }
