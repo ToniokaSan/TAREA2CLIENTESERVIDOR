@@ -9,14 +9,11 @@ package com.mycompany.tarea2cs;
  * @author potoy
  */
 public class Producto extends ProductoBase {
-    private int codigo;
-    private String nombre;
+    private final int codigo;
+    private final String nombre;
     private double precio;
     private int stock;
-
-    public Producto() {
-    }
-
+    
     
     public Producto(int codigo, String nombre, double precio, int stock) {
         this.codigo = codigo;
@@ -29,16 +26,8 @@ public class Producto extends ProductoBase {
         return codigo;
     }
 
-    public void setCodigo(int codigo) {
-        this.codigo = codigo;
-    }
-
     public String getNombre() {
         return nombre;
-    }
-
-    public void setNombre(String nombre) {
-        this.nombre = nombre;
     }
 
     public double getPrecio() {
@@ -46,7 +35,8 @@ public class Producto extends ProductoBase {
     }
 
     public void setPrecio(double precio) {
-        this.precio = precio;
+        if (precio > 0) 
+            this.precio = precio;
     }
 
     public int getStock() {
@@ -54,7 +44,8 @@ public class Producto extends ProductoBase {
     }
 
     public void setStock(int stock) {
-        this.stock = stock;
+        if (stock > 0)
+            this.stock = stock;
     }
 
     @Override

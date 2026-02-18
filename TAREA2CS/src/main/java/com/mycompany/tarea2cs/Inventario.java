@@ -4,10 +4,6 @@
  */
 package com.mycompany.tarea2cs;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
 import java.util.*;
 
 /**
@@ -71,13 +67,14 @@ public class Inventario {
         sc.nextLine();
         System.out.println("Ingrese el nombre: ");
         String nombre = sc.nextLine();
-        System.out.println("Ingrese su precio: ");
+        System.out.println("Ingrese su precio, agregue.0 al final: ");
         double precio = sc.nextDouble();
         System.out.println("Digite su stock");
         int stock = sc.nextInt();
         Producto producto = new Producto( codigo, nombre, precio, stock);
         productos.add(producto);
         mapaProductos.put(producto.getCodigo(), producto);
+    
     }
 
     public void agregarProductoDescuento (){

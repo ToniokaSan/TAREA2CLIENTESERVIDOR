@@ -11,8 +11,6 @@ package com.mycompany.tarea2cs;
 public class ProductoDescuento extends Producto {
     private double porcentajeDescuento;
 
-    public ProductoDescuento() {
-    }
 
     public ProductoDescuento(double porcentajeDescuento, int codigo, String nombre, double precio, int stock) {
         super(codigo, nombre, precio, stock);
