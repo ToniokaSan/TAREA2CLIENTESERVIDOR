@@ -50,10 +50,39 @@ public class TAREA2CS {
                         opcionAgregar = ManejoExcepciones.pedirInt(sc);
                         switch (opcionAgregar){
                             case 1:
-                                miInventario.agregarProducto();
+                                int codigo = 0;
+                                boolean correcto = false;
+                                while (!correcto){
+                                    try {
+                                        System.out.println("Ingrese el codigo: ");
+                                        codigo = sc.nextInt();
+                                        correcto = true;
+                                    }catch(Exception e){
+                                        System.out.println("Error, digite un numero entero");
+                                        sc.nextLine();
+                                    }
+                                }
+                                System.out.println("Ingrese el nombre: ");
+                                String nombre = sc.nextLine();
+                                System.out.println("Ingrese su precio, agregue.0 al final: ");
+                                double precio = sc.nextDouble();
+                                System.out.println("Digite su stock");
+                                int stock = sc.nextInt();
+                                miInventario.agregarProducto(codigo,nombre,precio,stock);
                                 break;
                             case 2:
-                                miInventario.agregarProductoDescuento();
+                                System.out.println("Ingrese el descuento del producto: ");
+                                double descuento = sc.nextDouble();
+                                System.out.println("Ingrese el codigo: ");
+                                codigo = sc.nextInt();
+                                sc.nextLine();
+                                System.out.println("Ingrese el nombre: ");
+                                nombre = sc.nextLine();
+                                System.out.println("Ingrese su precio: ");
+                                precio = sc.nextDouble();
+                                System.out.println("Digite su stock");
+                                stock = sc.nextInt();
+                                miInventario.agregarProductoDescuento(descuento,codigo,nombre,precio,stock);
                                 break;
                             case 3:
                                 System.out.println("Regresando al menu principal\n"
@@ -75,6 +104,7 @@ public class TAREA2CS {
                 case 4:
                     miInventario.mostrarProductos();
                     System.out.println("Ingrese el numero de producto a agregar al carrito: ");
+                    
                     int agregar = ManejoExcepciones.pedirInt(sc)-1;
                     miCarrito.AgregarAlCarrito(miInventario.getProductos().get(agregar));
                     miInventario.getProductos().get(agregar-1).setStock(miInventario.getProductos().get(agregar).getStock()-1);

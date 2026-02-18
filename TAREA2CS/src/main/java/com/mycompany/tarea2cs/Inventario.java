@@ -60,36 +60,14 @@ public class Inventario {
         }
     }
     
-    public void agregarProducto(){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el codigo: ");
-        int codigo = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Ingrese el nombre: ");
-        String nombre = sc.nextLine();
-        System.out.println("Ingrese su precio, agregue.0 al final: ");
-        double precio = sc.nextDouble();
-        System.out.println("Digite su stock");
-        int stock = sc.nextInt();
+    public void agregarProducto(int codigo, String nombre, double precio, int stock){
         Producto producto = new Producto( codigo, nombre, precio, stock);
         productos.add(producto);
         mapaProductos.put(producto.getCodigo(), producto);
     
     }
 
-    public void agregarProductoDescuento (){
-        Scanner sc = new Scanner(System.in);
-        System.out.println("Ingrese el descuento del producto: ");
-        double descuento = sc.nextDouble();
-        System.out.println("Ingrese el codigo: ");
-        int codigo = sc.nextInt();
-        sc.nextLine();
-        System.out.println("Ingrese el nombre: ");
-        String nombre = sc.nextLine();
-        System.out.println("Ingrese su precio: ");
-        double precio = sc.nextDouble();
-        System.out.println("Digite su stock");
-        int stock = sc.nextInt();
+    public void agregarProductoDescuento (double descuento,int codigo, String nombre, double precio, int stock){
         ProductoDescuento producto = new ProductoDescuento(descuento,codigo, nombre, precio, stock);
         productos.add(producto);
         mapaProductos.put(producto.getCodigo(), producto);
