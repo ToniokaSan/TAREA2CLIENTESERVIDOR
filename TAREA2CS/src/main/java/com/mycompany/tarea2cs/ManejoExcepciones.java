@@ -60,8 +60,7 @@ public class ManejoExcepciones {
 
         while (continuar){
             try {
-                System.out.println("METODO AGREGAR");
-                System.out.println("ingrese el numero del producto (en la lista) a agregar: ");
+                System.out.println("Ingrese el numero del producto (en la lista): ");
                 opcion = sc.nextInt()-1;
                 if (opcion < 0 || opcion > tamañoLista) {
                 System.out.println("Error, indice fuera del limite de la lista");
@@ -87,8 +86,7 @@ public class ManejoExcepciones {
 
         while (continuar){
             try {
-                System.out.println("METODO ELIMINAR");
-                System.out.println("ingrese el numero del producto (en el inventario) a eliminar: ");
+                System.out.println("Ingrese el numero del producto (en el inventario) a eliminar: ");
                 opcion = sc.nextInt()-1;
                 if (opcion < 0 || opcion >= tamañoLista) {
                 System.out.println("Error, indice fuera del limite de la lista");

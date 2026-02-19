@@ -27,7 +27,7 @@ public class TAREA2CS {
         
         int opcion = 0 ;
         do{
-            System.out.println("Bienvenido al Mini Super Rápido");
+            System.out.println("Bienvenido al Mini Super Rapido!");
             System.out.println(
                       "1- Agregar producto\n"
                     + "2- Mostrar inventario productos\n"
@@ -67,7 +67,7 @@ public class TAREA2CS {
                                     sc.nextLine();
                                     correcto = true;
                                 } catch (InputMismatchException e) {
-                                    System.out.println("Error, ingrese un numero entero:");
+                                    System.out.println("Error, ingrese un numero entero: ");
                                     sc.nextLine();
                                 }
                             }
@@ -78,7 +78,7 @@ public class TAREA2CS {
                                 correcto = false;
                                 while (!correcto){ // try del precio
                                     try {
-                                        System.out.println("Ingrese su precio, agregue.0 al final: ");
+                                        System.out.println("Ingrese su precio, agregue 0 al final: ");
                                         precio = sc.nextDouble();
                                         sc.nextLine();
                                         if (precio > 0){
@@ -87,23 +87,23 @@ public class TAREA2CS {
                                             System.out.println("El precio debe ser mayor a 0");
                                         }
                                     } catch (InputMismatchException e) {
-                                        System.out.println("Error, ingrese un numero de tipo double");
+                                        System.out.println("Error, ingrese un numero de tipo double: ");
                                         sc.nextLine();
                                     }
                                 }
                                 correcto = false;
                                 while (!correcto) { // try del stock
                                     try {
-                                        System.out.println("Digite su stock");
+                                        System.out.println("Digite su stock: ");
                                         stock = sc.nextInt();
                                         sc.nextLine();
                                         if (stock > 0){
                                         correcto = true;
                                         }else{
-                                            System.out.println("El stock debe ser mayor a 0");
+                                            System.out.println("El stock debe ser mayor a 0, intente de nuevo");
                                         }
                                     } catch (InputMismatchException e) {
-                                        System.out.println("Error, ingrese un numero de tipo entero");
+                                        System.out.println("Error, ingrese un numero de tipo entero: ");
                                         sc.nextLine();
                                     }
                                 }
@@ -128,10 +128,10 @@ public class TAREA2CS {
                                         if (descuento > 0  && descuento <= 100){
                                             correcto = true;
                                         }else{
-                                            System.out.println("El descuento debe ser mayor a 0");
+                                            System.out.println("El descuento debe ser mayor a 0, intente de nuevo ");
                                         }
                                     }catch(InputMismatchException e){
-                                        System.out.println("Error, ingrese un numero de tipo double");
+                                        System.out.println("Error, ingrese un numero de tipo double: ");
                                         sc.nextLine();
                                     }
                                 }
@@ -144,7 +144,7 @@ public class TAREA2CS {
                                         sc.nextLine();
                                         correcto = true;
                                     } catch (InputMismatchException e) {
-                                        System.out.println("Error, ingrese un numero entero:");
+                                        System.out.println("Error, ingrese un numero entero: ");
                                         sc.nextLine();
                                     }
                                 }
@@ -154,7 +154,7 @@ public class TAREA2CS {
                                 correcto = false;
                                 while (!correcto) { // try del precio
                                     try {
-                                        System.out.println("Ingrese su precio, agregue.0 al final: ");
+                                        System.out.println("Ingrese su precio, agregue 0 al final: ");
                                         precio = sc.nextDouble();
                                         sc.nextLine();
                                         if (precio > 0) {
@@ -163,23 +163,23 @@ public class TAREA2CS {
                                             System.out.println("El precio debe ser mayor a 0");
                                         }
                                     } catch (InputMismatchException e) {
-                                        System.out.println("Error, ingrese un numero de tipo double");
+                                        System.out.println("Error, ingrese un numero de tipo double: ");
                                         sc.nextLine();
                                     }
                                 }
                                 correcto = false;
                                 while (!correcto) { // try del stock
                                     try {
-                                        System.out.println("Digite su stock");
+                                        System.out.println("Digite su stock: ");
                                         stock = sc.nextInt();
                                         sc.nextLine();
                                         if (stock > 0) {
                                             correcto = true;
                                         } else {
-                                            System.out.println("El stock debe ser mayor a 0");
+                                            System.out.println("El stock debe ser mayor a 0, intente de nuevo");
                                         }
                                     } catch (InputMismatchException e) {
-                                        System.out.println("Error, ingrese un numero de tipo entero");
+                                        System.out.println("Error, ingrese un numero de tipo entero: ");
                                         sc.nextLine();
                                     }
                                 }
@@ -187,7 +187,7 @@ public class TAREA2CS {
                                 break;
                             }
                             case 3:
-                                System.out.println("Regresando al menu principal\n"
+                                System.out.println("Regresando al menu principal...\n"
                                     + "-------------");
                                 break;
                         }
@@ -198,7 +198,7 @@ public class TAREA2CS {
                     miInventario.mostrarProductos();
                     break;//break case 2 menu principal
                 case 3:
-                    System.out.println("Ingrese el codigo del producto a buscar: ");
+                    System.out.println("Ingrese el código del producto a buscar: ");
                     int codigoBuscado = ManejoExcepciones.pedirCodigo(sc);
                     System.out.println("");
                     miInventario.buscarCodigo(codigoBuscado);
@@ -212,7 +212,7 @@ public class TAREA2CS {
                         miCarrito.AgregarAlCarrito(productoAgregar);
                         productoAgregar.setStock(productoAgregar.getStock()-1);
                     }else{
-                        System.out.println("no hay suficiente stock");
+                        System.out.println("No hay suficiente stock.");
                     }
                     break;//break case 4 menu principal
 
@@ -225,9 +225,39 @@ public class TAREA2CS {
                 case 6: 
                     miInventario.mostrarProductos();
                     
-                    
-                    int editar = ManejoExcepciones.pedirIntAgregarLista(sc,miInventario.getProductos().size())-1;
-                    break;//editar producto
+                    int editar = ManejoExcepciones.pedirIntAgregarLista(sc,miInventario.getProductos().size());
+                    Producto productoEditar = miInventario.getProductos().get(editar);
+
+                    double newPrecio = 0;
+                    boolean precioCorrecto = false;
+                    while (!precioCorrecto) {
+                        try {
+                            System.out.println("Ingrese el nuevo precio (0 para no cambiar): ");
+                            newPrecio = sc.nextDouble();
+                            sc.nextLine();
+                            precioCorrecto = true;
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error, ingrese un numero valido:");
+                            sc.nextLine();
+                        }
+                    }
+
+                    int newStock = 0;
+                    boolean stockCorrecto = false;
+                    while (!stockCorrecto) {
+                        try {
+                            System.out.println("Ingrese el nuevo stock (0 para no cambiar): ");
+                            newStock = sc.nextInt();
+                            sc.nextLine();
+                            stockCorrecto = true;
+                        } catch (InputMismatchException e) {
+                            System.out.println("Error, ingrese un numero entero: ");
+                            sc.nextLine();
+                        }
+                    }
+
+                    miInventario.editarProducto(productoEditar, newPrecio, newStock);
+                    break; //Editar
                 case 7:
                     miCarrito.mostrarCarrito();
                     
@@ -246,7 +276,7 @@ public class TAREA2CS {
                     System.out.println(miCarrito.calcularTotalCompra());
                     break;//break case 9 menu principal
                 case 10:
-                    System.out.println("Saliendo del Mini Super, hasta luego...");
+                    System.out.println("Saliendo del Mini Super, hasta pronto...");
                     break;
             }
         }while (opcion!= 9);//final del do 

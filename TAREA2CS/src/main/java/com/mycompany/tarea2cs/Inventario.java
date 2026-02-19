@@ -81,4 +81,16 @@ public class Inventario {
         
     }
     
+    public void editarProducto(Producto producto, double newPrecio, int newStock) {
+    if (newPrecio > 0) {
+        producto.setPrecio(newPrecio);
+        System.out.println("Precio actualizado.");
+    }
+    if (newStock > 0) {
+        producto.setStock(newStock);
+        System.out.println("Stock actualizado.");
+    }
+    System.out.println("Producto actualizado: " + producto);
+}
+    
 }
