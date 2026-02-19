@@ -4,6 +4,8 @@
 
 package com.mycompany.tarea2cs;
 import java.util.*;
+import java.util.InputMismatchException;
+
 /**
  *
  * @author potoy
@@ -52,34 +54,138 @@ public class TAREA2CS {
                                 + "-------------");
                         opcionAgregar = ManejoExcepciones.pedirIntMenu(sc);
                         switch (opcionAgregar){
-                            case 1:
                             
-                                
-                                System.out.println("Ingrese el codigo: ");
-                                int codigo = sc.nextInt();
-                                 sc.nextLine();
+                            case 1:{
+                            int codigo = 0;
+                            double precio = 0;
+                            int stock = 0;
+                            boolean correcto = false;
+                            while (!correcto){ //try catch de codigo
+                                try {
+                                    System.out.println("Ingrese el codigo: ");
+                                    codigo = sc.nextInt();
+                                    sc.nextLine();
+                                    correcto = true;
+                                } catch (InputMismatchException e) {
+                                    System.out.println("Error, ingrese un numero entero:");
+                                    sc.nextLine();
+                                }
+                            }
+                            
                                 System.out.println("Ingrese el nombre: ");
                                 String nombre = sc.nextLine();
-                                System.out.println("Ingrese su precio, agregue.0 al final: ");
-                                double precio = sc.nextDouble();
-                                System.out.println("Digite su stock");
-                                int stock = sc.nextInt();
+                                
+                                correcto = false;
+                                while (!correcto){ // try del precio
+                                    try {
+                                        System.out.println("Ingrese su precio, agregue.0 al final: ");
+                                        precio = sc.nextDouble();
+                                        sc.nextLine();
+                                        if (precio > 0){
+                                            correcto = true;
+                                        }else{
+                                            System.out.println("El precio debe ser mayor a 0");
+                                        }
+                                    } catch (InputMismatchException e) {
+                                        System.out.println("Error, ingrese un numero de tipo double");
+                                        sc.nextLine();
+                                    }
+                                }
+                                correcto = false;
+                                while (!correcto) { // try del stock
+                                    try {
+                                        System.out.println("Digite su stock");
+                                        stock = sc.nextInt();
+                                        sc.nextLine();
+                                        if (stock > 0){
+                                        correcto = true;
+                                        }else{
+                                            System.out.println("El stock debe ser mayor a 0");
+                                        }
+                                    } catch (InputMismatchException e) {
+                                        System.out.println("Error, ingrese un numero de tipo entero");
+                                        sc.nextLine();
+                                    }
+                                }
+                                
                                 miInventario.agregarProducto(codigo,nombre,precio,stock);
                                 break;
-                            case 2:
-                                System.out.println("Ingrese el descuento del producto: ");
-                                double descuento = sc.nextDouble();
-                                System.out.println("Ingrese el codigo: ");
-                                codigo = sc.nextInt();
-                                sc.nextLine();
+                            }
+                            case 2:{
+                                boolean correcto;
+                                double descuento = 0;
+                                int codigo = 0;
+                                String nombre;
+                                double precio = 0;
+                                int stock = 0;
+                                
+                                correcto = false;
+                                while (!correcto){
+                                    try{
+                                        System.out.println("Ingrese el descuento del producto: ");
+                                        descuento = sc.nextDouble();
+                                        sc.nextLine();
+                                        if (descuento > 0  && descuento <= 100){
+                                            correcto = true;
+                                        }else{
+                                            System.out.println("El descuento debe ser mayor a 0");
+                                        }
+                                    }catch(InputMismatchException e){
+                                        System.out.println("Error, ingrese un numero de tipo double");
+                                        sc.nextLine();
+                                    }
+                                }
+                                
+                                correcto = false;
+                                while (!correcto) { //try catch de codigo
+                                    try {
+                                        System.out.println("Ingrese el codigo: ");
+                                        codigo = sc.nextInt();
+                                        sc.nextLine();
+                                        correcto = true;
+                                    } catch (InputMismatchException e) {
+                                        System.out.println("Error, ingrese un numero entero:");
+                                        sc.nextLine();
+                                    }
+                                }
                                 System.out.println("Ingrese el nombre: ");
                                 nombre = sc.nextLine();
-                                System.out.println("Ingrese su precio: ");
-                                precio = sc.nextDouble();
-                                System.out.println("Digite su stock");
-                                stock = sc.nextInt();
+                                
+                                correcto = false;
+                                while (!correcto) { // try del precio
+                                    try {
+                                        System.out.println("Ingrese su precio, agregue.0 al final: ");
+                                        precio = sc.nextDouble();
+                                        sc.nextLine();
+                                        if (precio > 0) {
+                                            correcto = true;
+                                        } else {
+                                            System.out.println("El precio debe ser mayor a 0");
+                                        }
+                                    } catch (InputMismatchException e) {
+                                        System.out.println("Error, ingrese un numero de tipo double");
+                                        sc.nextLine();
+                                    }
+                                }
+                                correcto = false;
+                                while (!correcto) { // try del stock
+                                    try {
+                                        System.out.println("Digite su stock");
+                                        stock = sc.nextInt();
+                                        sc.nextLine();
+                                        if (stock > 0) {
+                                            correcto = true;
+                                        } else {
+                                            System.out.println("El stock debe ser mayor a 0");
+                                        }
+                                    } catch (InputMismatchException e) {
+                                        System.out.println("Error, ingrese un numero de tipo entero");
+                                        sc.nextLine();
+                                    }
+                                }
                                 miInventario.agregarProductoDescuento(descuento,codigo,nombre,precio,stock);
                                 break;
+                            }
                             case 3:
                                 System.out.println("Regresando al menu principal\n"
                                     + "-------------");
