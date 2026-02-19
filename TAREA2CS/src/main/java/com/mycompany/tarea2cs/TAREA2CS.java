@@ -4,7 +4,6 @@
 
 package com.mycompany.tarea2cs;
 import java.util.*;
-import java.util.InputMismatchException;
 
 /**
  *
@@ -78,7 +77,7 @@ public class TAREA2CS {
                                 correcto = false;
                                 while (!correcto){ // try del precio
                                     try {
-                                        System.out.println("Ingrese su precio, agregue 0 al final: ");
+                                        System.out.println("Ingrese su precio: ");
                                         precio = sc.nextDouble();
                                         sc.nextLine();
                                         if (precio > 0){
@@ -154,7 +153,7 @@ public class TAREA2CS {
                                 correcto = false;
                                 while (!correcto) { // try del precio
                                     try {
-                                        System.out.println("Ingrese su precio, agregue 0 al final: ");
+                                        System.out.println("Ingrese su precio: ");
                                         precio = sc.nextDouble();
                                         sc.nextLine();
                                         if (precio > 0) {
@@ -205,15 +204,19 @@ public class TAREA2CS {
                     break;//break case 3 menu principal
                 case 4:
                     miInventario.mostrarProductos();
-                    
-                    int agregar = ManejoExcepciones.pedirIntAgregarLista(sc, miInventario.getProductos().size());
-                    Producto productoAgregar = miInventario.getProductos().get(agregar);
-                    if (productoAgregar.getStock() > 0){// provisional, no se como ponerle try catch a esto
-                        miCarrito.AgregarAlCarrito(productoAgregar);
-                        productoAgregar.setStock(productoAgregar.getStock()-1);
-                    }else{
-                        System.out.println("No hay suficiente stock.");
+                    try{
+                        int agregar = ManejoExcepciones.pedirIntAgregarLista(sc, miInventario.getProductos().size());
+                        Producto productoAgregar = miInventario.getProductos().get(agregar);
+                        if (productoAgregar.getStock() > 0){
+                            miCarrito.AgregarAlCarrito(productoAgregar);
+                            productoAgregar.setStock(productoAgregar.getStock()-1);
+                       }else{
+                        System.out.println("Error, no hay suficiente stock para agregar el producto seleccionado\n");
+                       }
+                    }catch(Exception e){
+                        System.out.println("Error, no hay suficiente stock para agregar el producto seleccionado\n");
                     }
+                    
                     break;//break case 4 menu principal
 
                 case 5:
@@ -273,13 +276,13 @@ public class TAREA2CS {
                    break; //break case 8 menu principal
                 case 9:
                     miCarrito.mostrarCarrito();
-                    System.out.println(miCarrito.calcularTotalCompra());
+                    System.out.println("Su total a pagar es de: " + miCarrito.calcularTotalCompra()+"\n");
                     break;//break case 9 menu principal
                 case 10:
                     System.out.println("Saliendo del Mini Super, hasta pronto...");
                     break;
             }
-        }while (opcion!= 9);//final del do 
+        }while (opcion!= 10);//final del do 
         sc.close();
     }
 }

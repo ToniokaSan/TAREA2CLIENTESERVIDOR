@@ -44,8 +44,9 @@ public class Producto extends ProductoBase {
     }
 
     public void setStock(int stock) {
-        if (stock >= 0)
+        if (stock >= 0){
             this.stock = stock;
+        }
     }
 
     @Override

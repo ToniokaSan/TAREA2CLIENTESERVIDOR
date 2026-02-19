@@ -50,7 +50,7 @@ public class Inventario {
         if (busqueda!=null){
             System.out.println(busqueda+"\n");
         }else{
-            System.out.println("El codigo ingresado no coincide con ningun producto");
+            System.out.println("El codigo ingresado no coincide con ningun producto\n");
         }
     }
     

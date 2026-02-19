@@ -58,8 +58,6 @@ public class Carrito extends ProductoBase {
         double total = 0;
         for (int i= 0; i < carrito.size(); i++)
             total += carrito.get(i).calcularTotalCompra();
-        
-        System.out.println("Su total a pagar es de: " + total);
         return total;
     }
 
