@@ -31,6 +31,10 @@ public class Carrito extends ProductoBase {
         carrito.add(producto);
         System.out.println("Producto agregado al carrito");
     }
+    public void elimCarrito(Producto producto){
+        carrito.remove(producto);
+        System.out.println("Producto eliminado al carrito");
+    }
 
     public void mostrarCarrito(){
         System.out.println( "----- Carrito -----");
@@ -39,7 +43,7 @@ public class Carrito extends ProductoBase {
             return;
         }
         for (int i= 0; i < carrito.size(); i++){
-            System.out.println( "- " + carrito.get(i).toString()+"\n");
+            System.out.println( (i+1)+"-" + carrito.get(i).toString()+"\n");
         }
     }
     

@@ -41,7 +41,7 @@ public class Inventario {
         this.mapaProductos = mapaProductos;
     }
     
-    public void agregarProductos(Producto producto){
+    public void agregarProductoLista(Producto producto){
         productos.add(producto);
         mapaProductos.put(producto.getCodigo(), producto);
     }
@@ -55,6 +55,7 @@ public class Inventario {
     }
     
     public void mostrarProductos(){
+        System.out.println("---- Inventario ----");
         for (int i= 0; i < productos.size(); i++){
             System.out.println( (i+1) +"- " + productos.get(i).toString()+"\n");
         }
@@ -64,6 +65,12 @@ public class Inventario {
         Producto producto = new Producto( codigo, nombre, precio, stock);
         productos.add(producto);
         mapaProductos.put(producto.getCodigo(), producto);
+    
+    }
+
+    public void eliminarProducto(Producto producto){
+        productos.remove(producto);
+        mapaProductos.remove(producto.getCodigo(), producto);
     
     }
 
