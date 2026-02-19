@@ -42,6 +42,12 @@ public class Carrito extends ProductoBase {
             System.out.println( "- " + carrito.get(i).toString()+"\n");
         }
     }
+    
+    public void AgregarCantidadCarrito (int cantidad,double stock){
+        if (cantidad > stock){
+            
+        }
+    }
 
     @Override
     public double calcularTotalCompra() {
